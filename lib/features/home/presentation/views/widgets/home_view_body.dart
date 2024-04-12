@@ -13,8 +13,29 @@ class HomeViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomAppBar(),
-        CustomListViewItem(),
+        FeatureBooksListView(),
       ],
+    );
+  }
+}
+
+class FeatureBooksListView extends StatelessWidget {
+  const FeatureBooksListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.3,
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return const CustomListViewItem();
+          },
+          itemCount: 20,
+          scrollDirection: Axis.horizontal,
+        ),
+      ),
     );
   }
 }
