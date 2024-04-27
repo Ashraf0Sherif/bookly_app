@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48,
+      height: 45,
       child: TextButton(
         onPressed: () {},
         style: TextButton.styleFrom(
