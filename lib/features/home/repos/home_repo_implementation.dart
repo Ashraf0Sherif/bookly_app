@@ -12,7 +12,7 @@ class HomeRepoImplementation implements HomeRepo {
   @override
   Future<ApiResult<List<Book>>> fetchNewestBooks() async {
     try {
-      List<Book> response = await apiService.getAllBooks();
+      List<Book> response = await apiService.getNewestBooks();
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(NetworkExceptions.getDioException(error));
@@ -20,8 +20,12 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<ApiResult<List<Book>>> fetchFeaturedBooks() {
-    // TODO: implement fetchFeaturedBooks
-    throw UnimplementedError();
+  Future<ApiResult<List<Book>>> fetchFeaturedBooks() async {
+    try {
+      List<Book> response = await apiService.getFeaturedBooks();
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(NetworkExceptions.getDioException(error));
+    }
   }
 }

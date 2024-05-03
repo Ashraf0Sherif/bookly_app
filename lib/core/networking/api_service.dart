@@ -10,5 +10,8 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @GET('volumes?Filtering=free-ebooks&q=subject:programming&Sorting=newest')
-  Future<List<Book>> getAllBooks();
+  Future<List<Book>> getNewestBooks();
+
+  @GET('volumes?Filtering=free-ebooks&q=subject:programming')
+  Future<List<Book>> getFeaturedBooks();
 }
