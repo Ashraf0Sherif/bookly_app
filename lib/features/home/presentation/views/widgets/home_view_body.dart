@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-import 'best_seller_list_view.dart';
+import 'newest_list_view.dart';
 import 'custom_app_bar.dart';
 import 'featured_books_list_view.dart';
 
@@ -35,7 +35,7 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-          BestSellerListView()
+          NewestListView()
         ],
       ),
     );
