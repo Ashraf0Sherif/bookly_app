@@ -12,8 +12,12 @@ class HomeRepoImplementation implements HomeRepo {
   @override
   Future<ApiResult<List<Book>>> fetchNewestBooks() async {
     try {
-      List<Book> response = await apiService.getNewestBooks();
-      return ApiResult.success(response);
+      var response = await apiService.getNewestBooks();
+      List<Book> newestBooks = [];
+      for (var item in response["items"]) {
+        newestBooks.add(Book.fromJson(item));
+      }
+      return ApiResult.success(newestBooks);
     } catch (error) {
       return ApiResult.failure(NetworkExceptions.getDioException(error));
     }
@@ -22,8 +26,12 @@ class HomeRepoImplementation implements HomeRepo {
   @override
   Future<ApiResult<List<Book>>> fetchFeaturedBooks() async {
     try {
-      List<Book> response = await apiService.getFeaturedBooks();
-      return ApiResult.success(response);
+      var response = await apiService.getFeaturedBooks();
+      List<Book> featuredBooks = [];
+      for (var item in response["items"]) {
+        featuredBooks.add(Book.fromJson(item));
+      }
+      return ApiResult.success(featuredBooks);
     } catch (error) {
       return ApiResult.failure(NetworkExceptions.getDioException(error));
     }

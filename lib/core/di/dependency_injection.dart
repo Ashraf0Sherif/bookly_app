@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/networking/api_service.dart';
 import 'package:bookly_app/features/home/presentation/logic/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/logic/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/features/home/repos/home_repo_implementation.dart';
@@ -10,6 +11,7 @@ void initGetIt() {
   getIt.registerLazySingleton<FeaturedBooksCubit>(() => FeaturedBooksCubit(getIt()));
   getIt.registerLazySingleton<NewestBooksCubit>(() => NewestBooksCubit(getIt()));
   getIt.registerLazySingleton<HomeRepoImplementation>(() => HomeRepoImplementation(getIt()));
+  getIt.registerLazySingleton<ApiService>(() => ApiService(createAndSetupDio()));
 }
 
 Dio createAndSetupDio() {

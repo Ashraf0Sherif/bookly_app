@@ -1,14 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly_app/core/networking/network_exceptions.dart';
+import 'package:bookly_app/features/home/repos/home_repo_implementation.dart';
 import 'package:meta/meta.dart';
 
 import '../../../data/models/book/book.dart';
-import '../../../repos/home_repo.dart';
 
 part 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  final HomeRepo homeRepo;
+  final HomeRepoImplementation homeRepo;
 
   NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
 
