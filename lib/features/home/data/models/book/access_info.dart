@@ -6,7 +6,6 @@ import 'pdf.dart';
 part 'access_info.g.dart';
 
 @JsonSerializable()
-
 class AccessInfo extends Equatable {
   final String? country;
   final String? viewability;
@@ -31,9 +30,12 @@ class AccessInfo extends Equatable {
     this.accessViewStatus,
     this.quoteSharingAllowed,
   });
-  factory AccessInfo.fromJson(Map<String, dynamic> json) => _$AccessInfoFromJson(json);
+
+  factory AccessInfo.fromJson(Map<String, dynamic> json) =>
+      _$AccessInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$AccessInfoToJson(this);
+
   @override
   List<Object?> get props {
     return [

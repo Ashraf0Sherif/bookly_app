@@ -1,8 +1,8 @@
 import 'package:bookly_app/features/search/presentation/views/widgets/custom_search_bar.dart';
+import 'package:bookly_app/features/search/presentation/views/widgets/search_result_list_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
-import '../../../../home/presentation/views/widgets/book_list_view_item.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -12,12 +12,14 @@ class SearchViewBody extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
       child: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(child: CustomSearchBar()),
           SliverToBoxAdapter(
-              child: SizedBox(
-            height: 20,
-          )),
+            child: SizedBox(
+              height: 20,
+            ),
+          ),
           SliverToBoxAdapter(
             child: Text(
               "Search Result",
@@ -27,23 +29,6 @@ class SearchViewBody extends StatelessWidget {
           SearchResultListView()
         ],
       ),
-    );
-  }
-}
-
-class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverList.builder(
-      itemCount: 20,
-      itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: BookListViewItem(),
-        );
-      },
     );
   }
 }
