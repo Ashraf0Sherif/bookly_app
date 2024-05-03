@@ -7,12 +7,9 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 void initGetIt() {
-  getIt.registerLazySingleton<FeaturedBooksCubit>(
-      () => FeaturedBooksCubit(getIt()));
-  getIt
-      .registerLazySingleton<NewestBooksCubit>(() => NewestBooksCubit(getIt()));
-  getIt.registerLazySingleton<HomeRepoImplementation>(
-      () => HomeRepoImplementation(getIt()));
+  getIt.registerLazySingleton<FeaturedBooksCubit>(() => FeaturedBooksCubit(getIt()));
+  getIt.registerLazySingleton<NewestBooksCubit>(() => NewestBooksCubit(getIt()));
+  getIt.registerLazySingleton<HomeRepoImplementation>(() => HomeRepoImplementation(getIt()));
 }
 
 Dio createAndSetupDio() {

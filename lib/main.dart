@@ -3,12 +3,15 @@ import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/features/home/presentation/logic/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/logic/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'core/di/dependency_injection.dart' as di;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'core/bloc_observer/simple_bloc_observer.dart';
+import 'core/di/dependency_injection.dart' as di;
 
 void main() {
   di.initGetIt();
+  Bloc.observer = SimpleBlocObserver();
   runApp(const BooklyApp());
 }
 
