@@ -4,7 +4,6 @@ import '../../../../home/presentation/views/widgets/book_list_view_item.dart';
 
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
@@ -12,7 +11,7 @@ class SearchResultListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
-          child: BookListViewItem(),
+          child: BookListViewItem(imageUrl: 'https://image.tmdb.org/t/p/w500/rULWuutDcN5NvtiZi4FRPzRYWSh.jpg',),
         );
       },
     );

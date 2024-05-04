@@ -5,7 +5,9 @@ import 'industry_identifier.dart';
 import 'panelization_summary.dart';
 import 'reading_modes.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'volume_info.g.dart';
+
 @JsonSerializable()
 class VolumeInfo extends Equatable {
   final String? title;
@@ -22,7 +24,7 @@ class VolumeInfo extends Equatable {
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
-  final ImageLinks? imageLinks;
+  final ImageLinks imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
@@ -43,15 +45,18 @@ class VolumeInfo extends Equatable {
     this.allowAnonLogging,
     this.contentVersion,
     this.panelizationSummary,
-    this.imageLinks,
+    required this.imageLinks,
     this.language,
     this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
   });
-  factory VolumeInfo.fromJson(Map<String, dynamic> json) => _$VolumeInfoFromJson(json);
+
+  factory VolumeInfo.fromJson(Map<String, dynamic> json) =>
+      _$VolumeInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$VolumeInfoToJson(this);
+
   @override
   List<Object?> get props {
     return [

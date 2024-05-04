@@ -25,13 +25,12 @@ class HomeViewBody extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  "Best Seller",
+                  "Newest",
                   style: Styles.kTextStyle18,
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                //BestSellerListView(),
               ],
             ),
           ),

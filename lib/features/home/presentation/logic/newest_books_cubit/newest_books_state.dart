@@ -8,9 +8,9 @@ class NewestBooksInitial extends NewestBooksState {}
 class NewestBooksLoading extends NewestBooksState {}
 
 class NewestBooksSuccess extends NewestBooksState {
-  final List<Book> featuredBooks;
+  final List<Book> newestBooks;
 
-  NewestBooksSuccess(this.featuredBooks);
+  NewestBooksSuccess(this.newestBooks);
 }
 
 class NewestBooksFailure extends NewestBooksState {

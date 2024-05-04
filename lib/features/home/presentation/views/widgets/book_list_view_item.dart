@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  const BookListViewItem({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +19,17 @@ class BookListViewItem extends StatelessWidget {
       },
       child: SizedBox(
         width: double.infinity,
-        height: 200,
+        height: 180,
         child: Row(
           children: [
             AspectRatio(
-              aspectRatio: 2.3 / 4,
+              aspectRatio: 2.4 / 4,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.red,
                   borderRadius: BorderRadius.circular(11),
-                  image: const DecorationImage(
-                    image: AssetImage(
-                      AssetsData.kTestImage,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      imageUrl,
                     ),
                     fit: BoxFit.fill,
                   ),

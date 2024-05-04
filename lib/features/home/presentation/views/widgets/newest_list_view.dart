@@ -15,19 +15,24 @@ class NewestListView extends StatelessWidget {
       builder: (context, state) {
         if (state is NewestBooksLoading) {
           return const SliverToBoxAdapter(child: CustomLoadingIndicator());
+        } else if (state is NewestBooksSuccess) {
+          return SliverList.builder(
+            itemCount: state.newestBooks.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: BookListViewItem(
+                  imageUrl: state
+                      .newestBooks[index].volumeInfo.imageLinks.thumbnail,
+                ),
+              );
+            },
+          );
         } else if (state is NewestBooksFailure) {
           return SliverToBoxAdapter(
               child: CustomErrorWidget(errorMessage: state.errMessage));
         } else {
-          return SliverList.builder(
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                child: BookListViewItem(),
-              );
-            },
-          );
+          return Container();
         }
       },
     );

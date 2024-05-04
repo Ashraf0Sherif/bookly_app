@@ -31,9 +31,8 @@ VolumeInfo _$VolumeInfoFromJson(Map<String, dynamic> json) => VolumeInfo(
           ? null
           : PanelizationSummary.fromJson(
               json['panelizationSummary'] as Map<String, dynamic>),
-      imageLinks: json['imageLinks'] == null
-          ? null
-          : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+      imageLinks:
+          ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
       language: json['language'] as String?,
       previewLink: json['previewLink'] as String?,
       infoLink: json['infoLink'] as String?,
