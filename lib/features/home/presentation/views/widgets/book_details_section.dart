@@ -18,7 +18,7 @@ class BookDetailsSection extends StatelessWidget {
           child: CustomBookItem(imageUrl: '',),
         ),
         const SizedBox(height: 16),
-        Text("The Jungle Book", style: Styles.kTextStyle30),
+        const Text("The Jungle Book", style: Styles.kTextStyle30),
         const SizedBox(height: 6),
         Opacity(
           opacity: 0.7,
@@ -30,13 +30,13 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 12,
         ),
-        BookRating(
+        const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(
           height: 15,
         ),
-        BooksAction(),
+        const BooksAction(),
       ],
     );
   }
