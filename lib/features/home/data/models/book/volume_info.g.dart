@@ -19,11 +19,13 @@ VolumeInfo _$VolumeInfoFromJson(Map<String, dynamic> json) => VolumeInfo(
       readingModes: json['readingModes'] == null
           ? null
           : ReadingModes.fromJson(json['readingModes'] as Map<String, dynamic>),
-      pageCount: json['pageCount'] as num?,
+      pageCount: (json['pageCount'] as num?)?.toInt(),
       printType: json['printType'] as String?,
       categories: (json['categories'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      averageRating: json['averageRating'] as num?,
+      ratingsCount: (json['ratingsCount'] as num?)?.toInt(),
       maturityRating: json['maturityRating'] as String?,
       allowAnonLogging: json['allowAnonLogging'] as bool?,
       contentVersion: json['contentVersion'] as String?,
@@ -31,8 +33,9 @@ VolumeInfo _$VolumeInfoFromJson(Map<String, dynamic> json) => VolumeInfo(
           ? null
           : PanelizationSummary.fromJson(
               json['panelizationSummary'] as Map<String, dynamic>),
-      imageLinks:
-          ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+      imageLinks: json['imageLinks'] == null
+          ? null
+          : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
       language: json['language'] as String?,
       previewLink: json['previewLink'] as String?,
       infoLink: json['infoLink'] as String?,
@@ -51,6 +54,8 @@ Map<String, dynamic> _$VolumeInfoToJson(VolumeInfo instance) =>
       'pageCount': instance.pageCount,
       'printType': instance.printType,
       'categories': instance.categories,
+      'averageRating': instance.averageRating,
+      'ratingsCount': instance.ratingsCount,
       'maturityRating': instance.maturityRating,
       'allowAnonLogging': instance.allowAnonLogging,
       'contentVersion': instance.contentVersion,

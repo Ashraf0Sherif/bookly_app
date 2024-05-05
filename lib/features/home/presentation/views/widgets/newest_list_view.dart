@@ -22,8 +22,7 @@ class NewestListView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: BookListViewItem(
-                  imageUrl: state
-                      .newestBooks[index].volumeInfo.imageLinks.thumbnail,
+                  book: state.newestBooks[index],
                 ),
               );
             },

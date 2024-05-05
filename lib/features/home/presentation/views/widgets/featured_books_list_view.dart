@@ -1,3 +1,4 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/logic/featured_books_cubit/featured_books_cubit.dart';
@@ -25,10 +26,11 @@ class FeatureBooksListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: CustomBookItem(
-                    imageUrl: state
-                        .featuredBooks[index].volumeInfo.imageLinks.thumbnail,
+                    imageUrl: state.featuredBooks[index].volumeInfo.imageLinks
+                            ?.thumbnail ??
+                        kNoCoverImage,
                   ),
                 );
               },

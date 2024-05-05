@@ -3,30 +3,36 @@ import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_
 import 'package:bookly_app/features/home/presentation/views/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/models/book/book.dart';
+
 class BookDetailsView extends StatelessWidget {
-  const BookDetailsView({super.key});
+  const BookDetailsView({super.key, required this.book});
+
+  final Book book;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  CustomBookDetailsAppBar(),
-                  BookDetailsSection(),
-                  Expanded(
+                  const CustomBookDetailsAppBar(),
+                  BookDetailsSection(
+                    book: book,
+                  ),
+                  const Expanded(
                     child: SizedBox(
                       height: 15,
                     ),
                   ),
                   SimilarBooksSection(),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                 ],

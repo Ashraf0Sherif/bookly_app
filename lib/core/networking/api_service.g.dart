@@ -33,7 +33,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'volumes?Filtering=free-ebooks&q=subject:programming&Sorting=newest',
+          'volumes?Filtering=free-ebooks&q=subject:software&Sorting=newest',
           queryParameters: queryParameters,
           data: _data,
         )

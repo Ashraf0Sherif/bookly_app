@@ -7,7 +7,7 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  @GET('volumes?Filtering=free-ebooks&q=subject:programming&Sorting=newest')
+  @GET('volumes?Filtering=free-ebooks&q=subject:software&Sorting=newest')
   Future<dynamic> getNewestBooks();
 
   @GET('volumes?Filtering=free-ebooks&q=subject:programming')

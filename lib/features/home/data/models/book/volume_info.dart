@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
 import 'reading_modes.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'volume_info.g.dart';
 
@@ -17,14 +17,16 @@ class VolumeInfo extends Equatable {
   final String? description;
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes? readingModes;
-  final num? pageCount;
+  final int? pageCount;
   final String? printType;
   final List<String>? categories;
+  final num? averageRating;
+  final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
-  final ImageLinks imageLinks;
+  final ImageLinks? imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
@@ -41,6 +43,8 @@ class VolumeInfo extends Equatable {
     this.pageCount,
     this.printType,
     this.categories,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -70,6 +74,8 @@ class VolumeInfo extends Equatable {
       pageCount,
       printType,
       categories,
+      averageRating,
+      ratingsCount,
       maturityRating,
       allowAnonLogging,
       contentVersion,
