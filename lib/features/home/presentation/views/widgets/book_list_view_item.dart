@@ -17,7 +17,7 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetails);
+        GoRouter.of(context).push(AppRouter.kBookDetails, extra: book);
       },
       child: SizedBox(
         width: double.infinity,

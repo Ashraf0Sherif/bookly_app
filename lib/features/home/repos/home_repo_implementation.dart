@@ -36,4 +36,20 @@ class HomeRepoImplementation implements HomeRepo {
       return ApiResult.failure(NetworkExceptions.getDioException(error));
     }
   }
+
+  @override
+  Future<ApiResult<List<Book>>> fetchSimilarBooks(
+      {required String category}) async {
+    try {
+      var response = await apiService.getSimilarBooks(category: category);
+      List<Book> similarBooks = [];
+      for (var item in response["items"]) {
+        Book book = Book.fromJson(item);
+        if (book.volumeInfo.imageLinks != null) similarBooks.add(book);
+      }
+      return ApiResult.success(similarBooks);
+    } catch (error) {
+      return ApiResult.failure(NetworkExceptions.getDioException(error));
+    }
+  }
 }

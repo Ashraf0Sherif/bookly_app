@@ -5,4 +5,6 @@ abstract class HomeRepo {
   Future<ApiResult<List<Book>>> fetchNewestBooks();
 
   Future<ApiResult<List<Book>>> fetchFeaturedBooks();
+
+  Future<ApiResult<List<Book>>> fetchSimilarBooks({required String category});
 }
