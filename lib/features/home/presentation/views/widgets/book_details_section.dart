@@ -24,7 +24,11 @@ class BookDetailsSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        Text('${book.volumeInfo.title}', style: Styles.kTextStyle30,textAlign: TextAlign.center,),
+        Text(
+          '${book.volumeInfo.title}',
+          style: Styles.kTextStyle30,
+          textAlign: TextAlign.center,
+        ),
         const SizedBox(height: 6),
         Opacity(
           opacity: 0.7,
@@ -44,7 +48,9 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const BooksAction(),
+        BooksAction(
+          book: book,
+        ),
       ],
     );
   }
