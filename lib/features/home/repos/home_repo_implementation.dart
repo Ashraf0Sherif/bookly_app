@@ -53,19 +53,4 @@ class HomeRepoImplementation implements HomeRepo {
     }
   }
 
-  @override
-  Future<ApiResult<List<Book>>> fetchSearchedBooks(
-      {required String search}) async {
-    try {
-      var response = await apiService.getSearchedBooks(search: search);
-      List<Book> searchedBooks = [];
-      for (var item in response["items"]) {
-        Book book = Book.fromJson(item);
-        if (book.volumeInfo.imageLinks != null) searchedBooks.add(book);
-      }
-      return ApiResult.success(searchedBooks);
-    } catch (error) {
-      return ApiResult.failure(NetworkExceptions.getDioException(error));
-    }
-  }
 }

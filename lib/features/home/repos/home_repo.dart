@@ -8,5 +8,5 @@ abstract class HomeRepo {
 
   Future<ApiResult<List<Book>>> fetchSimilarBooks({required String category});
 
-  Future<ApiResult<List<Book>>> fetchSearchedBooks({required String search});
+
 }

@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/networking/api_service.dart';
 import 'package:bookly_app/features/home/repos/home_repo_implementation.dart';
+import 'package:bookly_app/features/search/repos/search_repo_implementaion.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -10,6 +11,8 @@ void initGetIt() {
       () => HomeRepoImplementation(getIt()));
   getIt
       .registerLazySingleton<ApiService>(() => ApiService(createAndSetupDio()));
+  getIt.registerLazySingleton<SearchRepoImplementation>(
+      () => SearchRepoImplementation(getIt()));
 }
 
 Dio createAndSetupDio() {
