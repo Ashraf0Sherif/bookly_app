@@ -12,9 +12,9 @@ class SearchedBooksCubit extends Cubit<SearchedBooksState> {
 
   SearchedBooksCubit(this.homeRepo) : super(SearchedBooksInitial());
 
-  Future<void> getSearchedBooks() async {
+  Future<void> getSearchedBooks({required String search}) async {
     emit(SearchedBooksLoading());
-    var response = await homeRepo.fetchFeaturedBooks();
+    var response = await homeRepo.fetchSearchedBooks(search: search);
     print(response);
     response.when(
       success: (List<Book> searchedBooks) {

@@ -164,7 +164,7 @@ abstract class NetworkExceptions with _$NetworkExceptions {
     }, sendTimeout: () {
       errorMessage = "Send timeout in connection with API server";
     }, unableToProcess: () {
-      errorMessage = "Unable to process the data";
+      errorMessage = "No books found";
     }, defaultError: (String error) {
       errorMessage = error;
     }, formatException: () {

@@ -29,16 +29,17 @@ class BookDetailsSection extends StatelessWidget {
           style: Styles.kTextStyle30,
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 6),
+        SizedBox(height: book.volumeInfo.authors?[0] == null ? 0 : 6),
         Opacity(
           opacity: 0.7,
           child: Text(
             book.volumeInfo.authors?[0] ?? '',
             style: Styles.kTextStyle18.copyWith(fontStyle: FontStyle.italic),
+            textAlign: TextAlign.center,
           ),
         ),
-        const SizedBox(
-          height: 12,
+        SizedBox(
+          height: book.volumeInfo.authors?[0] == null ? 0 : 12,
         ),
         BookRating(
           mainAxisAlignment: MainAxisAlignment.center,

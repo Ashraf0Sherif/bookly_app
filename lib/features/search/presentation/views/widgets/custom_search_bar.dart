@@ -1,4 +1,6 @@
+import 'package:bookly_app/features/search/presentation/logic/searched_books_cubit/searched_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchBar extends StatefulWidget {
@@ -13,6 +15,7 @@ class CustomSearchBar extends StatefulWidget {
 class _CustomSearchBarState extends State<CustomSearchBar> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final _controller = TextEditingController();
   final double borderRadius = 16;
 
   @override
@@ -21,6 +24,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
       key: _formKey,
       autovalidateMode: autovalidateMode,
       child: TextFormField(
+        controller: _controller,
         validator: (value) {
           if (value?.isEmpty ?? true) {
             return "Field is required";
@@ -33,7 +37,15 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
         style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
           suffixIcon: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                BlocProvider.of<SearchedBooksCubit>(context)
+                    .getSearchedBooks(search: _controller.text);
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
             icon: const Opacity(
               opacity: 0.8,
               child: Icon(
@@ -51,10 +63,15 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
         ),
         onFieldSubmitted: (text) {
           if (_formKey.currentState!.validate()) {
+            BlocProvider.of<SearchedBooksCubit>(context)
+                .getSearchedBooks(search: text);
           } else {
             autovalidateMode = AutovalidateMode.always;
             setState(() {});
           }
+        },
+        onChanged: (text) {
+          _controller.text = text;
         },
       ),
     );
@@ -62,8 +79,8 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
 
   OutlineInputBorder buildOutLineInputBorder() {
     return OutlineInputBorder(
-          borderSide: const BorderSide(width: 1, color: Colors.white70),
-          borderRadius: BorderRadius.circular(borderRadius),
-        );
+      borderSide: const BorderSide(width: 1, color: Colors.white70),
+      borderRadius: BorderRadius.circular(borderRadius),
+    );
   }
 }

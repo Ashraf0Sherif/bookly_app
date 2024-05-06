@@ -111,7 +111,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/volumes?q=${search}',
+          '/volumes?Filtering=free-ebooks&q=${search}',
           queryParameters: queryParameters,
           data: _data,
         )

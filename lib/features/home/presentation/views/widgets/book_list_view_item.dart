@@ -50,7 +50,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.43,
                     child: Text(
-                      book.volumeInfo.authors![0],
+                      book.volumeInfo.authors?[0] ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.kTextStyle14,
