@@ -15,4 +15,7 @@ abstract class ApiService {
 
   @GET('volumes?Filtering=free-ebooks&q=subject:{category}&Sorting=relevance')
   Future<dynamic> getSimilarBooks({@Path('category') required String category});
+
+  @GET('/volumes?q={search}')
+  Future<dynamic> getSearchedBooks({@Path('search') required String search});
 }
