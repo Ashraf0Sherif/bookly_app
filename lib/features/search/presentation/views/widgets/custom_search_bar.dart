@@ -46,11 +46,12 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 setState(() {});
               }
             },
-            icon: const Opacity(
+            icon:  Opacity(
               opacity: 0.8,
               child: Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 size: 22,
+                color: Colors.red[50],
               ),
             ),
           ),
