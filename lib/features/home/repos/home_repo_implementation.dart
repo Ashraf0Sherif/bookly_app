@@ -2,7 +2,8 @@ import 'package:bookly_app/core/networking/api_result.dart';
 import 'package:bookly_app/core/networking/api_service.dart';
 import 'package:bookly_app/core/networking/network_exceptions.dart';
 import 'package:bookly_app/features/home/data/models/book/book.dart';
-import 'home_repo.dart';
+import 'package:bookly_app/features/home/repos/home_repo.dart';
+
 class HomeRepoImplementation implements HomeRepo {
   final ApiService apiService;
 
