@@ -14,24 +14,32 @@ class SearchResultListView extends StatelessWidget {
     return BlocBuilder<SearchedBooksCubit, SearchedBooksState>(
       builder: (context, state) {
         if (state is SearchedBooksSuccess) {
-          return SliverList.builder(
-            itemCount: state.searchedBooks.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: BookListViewItem(
-                  book: state.searchedBooks[index],
-                ),
-              );
-            },
-          );
+          if (state.searchedBooks.isNotEmpty) {
+            return SliverList.builder(
+              itemCount: state.searchedBooks.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: BookListViewItem(
+                    book: state.searchedBooks[index],
+                  ),
+                );
+              },
+            );
+          } else {
+            return const SliverFillRemaining(
+                child: Center(
+                    child:
+                        CustomErrorWidget(errorMessage: "No books found !")));
+          }
         } else if (state is SearchedBooksLoading) {
           return const SliverFillRemaining(
             child: Center(child: CustomLoadingIndicator()),
           );
         } else if (state is SearchedBooksFailure) {
           return SliverFillRemaining(
-              child: Center(child: CustomErrorWidget(errorMessage: state.errMessage)));
+              child: Center(
+                  child: CustomErrorWidget(errorMessage: state.errMessage)));
         } else {
           return const SliverToBoxAdapter(
             child: SizedBox(),
