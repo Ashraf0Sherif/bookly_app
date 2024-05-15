@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly_app/features/home/repos/home_repo_implementation.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../../core/networking/network_exceptions.dart';
 import '../../../data/models/book/book.dart';
+import '../../../domain/repos/home_repo_implementation.dart';
 
 part 'featured_books_state.dart';
 

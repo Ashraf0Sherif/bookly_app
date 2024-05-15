@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'core/bloc_observer/simple_bloc_observer.dart';
 import 'core/di/dependency_injection.dart' as di;
 import 'core/di/dependency_injection.dart';
-import 'features/home/repos/home_repo_implementation.dart';
+import 'features/home/domain/repos/home_repo_implementation.dart';
 
 void main() {
   di.initGetIt();
